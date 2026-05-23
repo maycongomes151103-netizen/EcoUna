@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoUna | Reciclagem Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Botão Dark Mode -->
+    <button class="theme-toggle" type="button" onclick="toggleTheme()" title="Alternar Modo Escuro">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="logo">♻️ EcoUna</div>
+        <ul class="nav-links">
+            <li><a href="#como-funciona">Como Reciclar</a></li>
+            <li><a href="#cores">Cores</a></li>
+            <li><a href="#chatbot" class="btn-nav">Tire suas dúvidas</a></li>
+        </ul>
+        <button class="menu-toggle" type="button" onclick="toggleMenu()" title="Abrir menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>O Futuro do Planeta Está nas Suas Mãos</h1>
+            <p>Transforme seu lixo em recurso. Aprenda a separar corretamente e ajude o meio ambiente.</p>
+            <a href="#chatbot" class="btn-primary">Verificar Item</a>
+            <a href="#como-funciona" class="btn-secondary">Saber Mais</a>
+        </div>
+    </header>
+
+    <!-- Como Funciona -->
+    <section id="como-funciona" class="section-container">
+        <div class="section-title">
+            <h2>Como a Reciclagem Funciona?</h2>
+            <p>Siga o ciclo da reciclagem em 3 passos simples.</p>
+        </div>
+        <div class="cards-container">
+            <div class="card" data-anime="left">
+                <div class="icon">🔴</div>
+                <h3>1. Separação</h3>
+                <p>Separe os resíduos: Orgânicos, Plásticos, Papéis, Vidros e Metais.</p>
+            </div>
+            <div class="card" data-anime="up">
+                <div class="icon">🟡</div>
+                <h3>2. Coleta</h3>
+                <p>A coleta seletiva passa ou você leva aos ecopontos.</p>
+            </div>
+            <div class="card" data-anime="right">
+                <div class="icon">🟢</div>
+                <h3>3. Processamento</h3>
+                <p>O material é limpo, triturado e vira novo produto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cores das Lixeiras -->
+    <section id="cores" class="section-colors">
+        <h2>🎨 Guia de Cores das Lixeiras</h2>
+        <p>Saiba onde jogar cada tipo de lixo!</p>
+        <div class="colors-grid">
+            <div class="color-box azul">
+                <i class="fas fa-paper"></i>
+                <h3>AZUL</h3>
+                <p>Papéis e Papelão</p>
+            </div>
+            <div class="color-box verde">
+                <i class="fas fa-wine-bottle"></i>
+                <h3>VERDE</h3>
+                <p>Vidros</p>
+            </div>
+            <div class="color-box vermelho">
+                <i class="fas fa-wine-glass"></i>
+                <h3>VERMELHO</h3>
+                <p>Plásticos</p>
+            </div>
+            <div class="color-box amarelo">
+                <i class="fas fa-can-food"></i>
+                <h3>AMARELO</h3>
+                <p>Metais</p>
+            </div>
+            <div class="color-box marrom">
+                <i class="fas fa-leaf"></i>
+                <h3>MARROM</h3>
+                <p>Orgânicos</p>
+            </div>
+            <div class="color-box cinza">
+                <i class="fas fa-trash-alt"></i>
+                <h3>CINZA</h3>
+                <p>Rejeitos (Não recycle)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por que não reciclar -->
+    <section id="por-que-reciclar" class="section-dark">
+        <div class="content-split">
+            <div class="text-side">
+                <h2>Por que não reciclar é prejudicial?</h2>
+                <ul class="bad-consequences">
+                    <li>🌍 <strong>Poluição:</strong> Lixeiras enchem oceanos e liberam gases tóxicos.</li>
+                    <li>⛽ <strong>Esgotamento:</strong> Recursos naturais como petróleo se esgotam.</li>
+                    <li>🏞️ <strong>Ocupação de Solo:</strong> Aterros ocupam áreas naturais.</li>
+                    <li>🐢 <strong>Vida Selvagem:</strong> Animais ingerem plásticos achando que é comida.</li>
+                </ul>
+            </div>
+            <div class="image-side">
+                <div class="img-placeholder">
+                    <span>Jogue o Lixo no Lugar Certo!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot -->
+    <section id="chatbot" class="chat-section">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>♻️ EcoUna</h3>
+                <p>Digite o nome de um item ou digite "ajuda"</p>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Olá! Sou o EcoUna 🤖<br>
+                    Pergunte-me sobre um item ex: "Garrafa PET"<br>
+                    ou Digite "ajuda" para ver todas as opções!
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="userInput" placeholder="Digite sua dúvida..." onkeypress="handleKeyPress(event)">
+                <button type="button" onclick="sendMessage()" title="Enviar mensagem">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz -->
+    <section id="quiz" class="section-container">
+        <div class="quiz-box">
+            <h2>🎯 Quiz: Teste seus Conhecimentos!</h2>
+            <p id="question-text">O que fazer com uma garrafa PET vazia?</p>
+            <div class="options">
+                <button type="button" class="quiz-option" onclick="answerQuiz(1)">♻️ Colocar na reciclável</button>
+                <button type="button" class="quiz-option" onclick="answerQuiz(2)">❌ Jogar no chão</button>
+                <button type="button" class="quiz-option" onclick="answerQuiz(3)">🏠 Lixo comum</button>
+            </div>
+            <p id="quiz-result"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>♻️ 2024 EcoUna Reciclagem. Vamos salvar o planeta juntos!</p>
+        <div class="social-links">
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>         
